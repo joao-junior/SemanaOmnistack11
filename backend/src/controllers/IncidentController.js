@@ -14,7 +14,7 @@ module.exports = {
             .offset((page - 1) * 5)
             .select(['incidents.*', 'ongs.name', 'ongs.email', 'ongs.whatsapp', 'ongs.city', 'ongs.uf']);
 
-        response.header('X-Total-Count', count['count(*)']);
+        response.header('x-total-count', count['count(*)']);
 
         return response.json(incidents);
     },
@@ -27,7 +27,7 @@ module.exports = {
             title, description, value, ong_id,
         });
 
-        return response.json({ id });
+        return response.json({title, ong_id});
     },
 
     async delete(request, response) {
